@@ -1,0 +1,55 @@
+<html>
+<body>
+<table border="1">
+<tr>
+<td>Vraag</td><td>Antwoord</td>
+</tr>
+<tr>
+<td>Welke soort rente moet je betalen?</td>
+<td><input type="radio" name="soortrente" id="er" checked> Enkelvoudige rente <br>
+<input type="radio" name="soortrente" id="sr"> Samengestelde rente <br></td>
+</tr>
+<tr>
+<td>Hoe hoog is het rentepercentage die betaald moet worden?</td>
+<td><input type="text" id="percentage" value="2.4"> procent</td>
+</tr>
+<tr>
+<td>Hoeveel heb je geleend?</td>
+<td><input type="text" id="bedrag" value="1"> ekkermannen</td>
+</tr>
+<tr>
+<td>Hoeveel jaar ga je het bedrag lenen?</td>
+<td><input type="text" id="tijd" value="1"> jaar</td>
+</tr>
+</table>
+<button onclick="bereken()">Bereken</button>
+
+<script>
+function bereken(){
+	var er = document.getElementById("er").checked;
+	var sr = document.getElementById("sr").checked;
+	var percentage = document.getElementById("percentage").value;
+	var bedrag = document.getElementById("bedrag").value;
+	var tijd = document.getElementById("tijd").value;
+	
+	if(er == true){
+		var percentage1 = percentage/100;
+		var rente = percentage1 * bedrag * tijd;
+		var bedrag = rente + bedrag * 1;
+		alert("Je moet in totaal: " + bedrag + " aflossen\n" + "Waarvan: " + rente + " rente is")
+	}
+	
+	if(sr == true){
+		var percentage1 = percentage/100 + 1;
+		var percentage2 = Math.pow(percentage1, tijd)
+		var bedrag1 = bedrag * percentage2;
+		var rente = bedrag1 - bedrag;
+		alert("Je moet in totaal: " + bedrag1 + " aflossen\n" + "Waarvan: " + rente + " rente is")
+	}
+	
+	
+}
+</script>
+
+</body>
+</html>

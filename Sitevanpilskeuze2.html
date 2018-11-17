@@ -1,0 +1,54 @@
+<html>
+<body>
+<input type="radio" name="to" id="itoe" checked> van inclusief naar exclusief <br>
+<input type="radio" name="to" id="etoi"> van exclusief naar inclusief <br>
+
+<input type="radio" name="percentage" id="nul" checked> 0 procent <br>
+<input type="radio" name="percentage" id="zes"> 6 procent <br>
+<input type="radio" name="percentage" id="eenentwintig"> 21 procent <br>
+
+
+Over welk bedrag wil je de BTW verekenen? <input type="text" id="bedrag" value="100"> ekkermannen <p>
+<button onclick="bereken()">Bereken</button>
+
+<script>
+function bereken(){
+	var itoe = document.getElementById("itoe").checked;
+	var etoi = document.getElementById("etoi").checked;
+	var nul = document.getElementById("nul").checked;
+	var zes = document.getElementById("zes").checked;
+	var eenentwintig = document.getElementById("eenentwintig").checked;
+	var x = document.getElementById("bedrag").value;
+	
+	if(itoe == true){
+		if(nul == true){
+			alert("Exclusief btw: " + x + "\n" + "Inclusief btw: " + x);
+		}
+		if(zes == true){
+			xeclusief = x/1.06;
+			alert("Exclusief btw: " + xeclusief + "\n" + "Inclusief btw: " + x);
+		}
+		if(zes == true){
+			xeclusief = x/1.21;
+			alert("Exclusief btw: " + xeclusief + "\n" + "Inclusief btw: " + x);
+		}
+	}
+	
+	if(etoi == true){
+		if(nul == true){
+			alert("Exclusief btw: " + x + "\n" + "Inclusief btw: " + x);
+		}
+		if(zes == true){
+			xinclusief = x*1.06;
+			alert("Exclusief btw: " + x + "\n" + "Inclusief btw: " + xinclusief);
+		}
+		if(eenentwintig == true){
+			xinclusief = x*1.21;
+			alert("Exclusief btw: " + x + "\n" + "Inclusief btw: " + xinclusief);
+		}
+	}
+}
+</script>
+
+</body>
+</html>
